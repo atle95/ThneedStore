@@ -1,7 +1,9 @@
+package application;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
@@ -26,6 +28,7 @@ public class Client
 
     while (!openConnection(host, portNumber))
     {
+      
     }
     
     listener = new ClientListener();
@@ -139,8 +142,8 @@ public class Client
    
     try
     {
-      host = args[0];
-      port = Integer.parseInt(args[1]);
+      host = InetAddress.getLocalHost().getHostName();//args[0];
+      port = 5555;//Integer.parseInt(args[1]);
       if (port < 1) throw new Exception();
     }
     catch (Exception e)
